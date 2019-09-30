@@ -1,0 +1,43 @@
+html, body {
+  font: normal 16px Arial, sans-serif;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+}
+fieldset > * {
+  box-sizing: border-box;
+  display: block;
+  margin: 1rem 0;
+  padding: 10px;
+  font: normal 16px Arial, sans-serif;
+}
+fieldset > input, fieldset > textarea {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+fieldset > button {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.todo__title {
+  font-weight: 600;
+}
+.todo__title:after {
+  content: " - ";
+}
+.todo__desc {
+  display: inline;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.todo__done {
+  display: block;
+  background: #eee;
+  margin-top: 10px;
+}
