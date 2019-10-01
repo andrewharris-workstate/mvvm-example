@@ -15,16 +15,36 @@ class TodoForm extends Component {
       title: this.titleInput.current.value,
       description: this.descInput.current.value,
     };
+
+    // if no title, don't save
+    if (!todo.title) return;
+
     this.props.saveTodo(todo);
+
+    // clear fields
+    this.titleInput.current.value = '';
+    this.descInput.current.value = '';
   }
 
   render() {
     return (
       <div id="todo-form">
         <fieldset>
-          <input ref={this.titleInput} type="text" id="title" placeholder="Title" />
-          <textarea ref={this.descInput} id="description" placeholder="Description" />
-          <button type="button" id="save-btn" onClick={this.getTodoInfo}>Save</button>
+          <input
+            ref={this.titleInput}
+            type="text"
+            placeholder="Title (required)"
+          />
+          <textarea
+            ref={this.descInput}
+            placeholder="Description"
+          />
+          <button
+            type="button"
+            onClick={this.getTodoInfo}
+          >
+            Save
+          </button>
         </fieldset>
       </div>
     );

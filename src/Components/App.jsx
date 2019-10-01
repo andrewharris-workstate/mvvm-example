@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import TodoForm from './TodoForm';
-import './App.css';
+import TodoItem from './TodoItem';
+import '../App.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class App extends Component {
 
     this.localStorage = typeof window !== 'undefined' && window.localStorage;
     this.saveNewTodo = this.saveNewTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
     this.state = {
       todos: this.getTodosFromLocalStorage(),
     };
@@ -25,12 +27,22 @@ export default class App extends Component {
     }
   }
 
-  saveNewTodo(item) {
-    const { todos } = this.state;
-    todos.push(item);
+  updateTodos(todos) {
     this.setState({ todos }, () => {
       this.localStorage.setItem('todos', JSON.stringify(todos));
     });
+  }
+
+  saveNewTodo(item) {
+    const { todos } = this.state;
+    todos.push(item);
+    this.updateTodos(todos);
+  }
+
+  removeTodo(id) {
+    const { todos } = this.state;
+    const newTodos = todos.filter((x, i) => i !== id);
+    setTimeout(() => this.updateTodos(newTodos), 300);
   }
 
   render() {
@@ -43,10 +55,13 @@ export default class App extends Component {
           <TodoForm saveTodo={this.saveNewTodo} />
           <ul id="todos">
             {todos && todos.map((item, i) => (
-              <li todoId={i}>
-                <span>{item.title}</span>
-                <span>{item.description}</span>
-              </li>
+              <TodoItem
+                key={item.title.toLowerCase().replace(/\s/g, '-')}
+                title={item.title}
+                description={item.description}
+                todoId={i}
+                removeTodo={this.removeTodo}
+              />
             ))}
           </ul>
         </div>

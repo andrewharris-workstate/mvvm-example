@@ -23,6 +23,9 @@ fieldset > button {
   padding: 5px 10px;
 }
 
+.todo {
+  margin: 20px 0;
+}
 .todo__title {
   font-weight: 600;
 }
