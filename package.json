@@ -327,7 +327,7 @@
     "math-random": "^1.0.4",
     "mdn-data": "^2.0.4",
     "media-typer": "^0.3.0",
-    "mem": "^1.1.0",
+    "mem": "^4.0.0",
     "merge-descriptors": "^1.0.1",
     "methods": "^1.1.2",
     "miller-rabin": "^4.0.1",
