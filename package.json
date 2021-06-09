@@ -96,7 +96,7 @@
     "css-color-names": "^0.0.4",
     "css-select-base-adapter": "^0.1.1",
     "css-unit-converter": "^1.1.1",
-    "css-what": "^2.1.3",
+    "css-what": "^5.0.1",
     "cssesc": "^2.0.0",
     "cssnano-util-get-arguments": "^4.0.0",
     "cssnano-util-get-match": "^4.0.0",
